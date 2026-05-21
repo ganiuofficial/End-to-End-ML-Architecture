@@ -1,0 +1,54 @@
+{
+  "baseline_lr": {
+    "name": "Logistic Regression (Baseline)",
+    "accuracy": 0.807,
+    "precision": 0.6584,
+    "recall": 0.5668,
+    "f1": 0.6092,
+    "auc": 0.8416,
+    "time_s": 0.18,
+    "epochs": "N/A",
+    "val_loss": "N/A"
+  },
+  "ann_rmsprop": {
+    "name": "ANN / RMSProp",
+    "accuracy": 0.7835,
+    "precision": 0.5972,
+    "recall": 0.5668,
+    "f1": 0.5816,
+    "auc": 0.8365,
+    "time_s": 35.3,
+    "epochs": 57,
+    "val_loss": 0.478
+  },
+  "cv_summary": {
+    "accuracy": {
+      "mean": 0.8,
+      "std": 0.0084
+    },
+    "precision": {
+      "mean": 0.6549,
+      "std": 0.0306
+    },
+    "recall": {
+      "mean": 0.5271,
+      "std": 0.0495
+    },
+    "f1": {
+      "mean": 0.5819,
+      "std": 0.0276
+    },
+    "auc": {
+      "mean": 0.8389,
+      "std": 0.0128
+    }
+  },
+  "best_threshold": {
+    "threshold": 0.3,
+    "precision": 0.5238,
+    "recall": 0.7647,
+    "f1": 0.6217,
+    "accuracy": 0.753
+  },
+  "run_timestamp": "2026-05-20T02:42:15.004623"
+}

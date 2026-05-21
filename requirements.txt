@@ -1,0 +1,11 @@
+# BAN6440 Final Project - Otomoto Customer Churn Pipeline
+# Pinned library versions for full reproducibility
+# Install with: pip install -r requirements.txt
+# Python 3.9+ required
+
+tensorflow==2.21.0
+scikit-learn==1.8.0
+pandas==3.0.2
+numpy==2.4.4
+matplotlib==3.10.8
+seaborn==0.13.2

@@ -1,0 +1,18 @@
+{
+  "before": {
+    "total_rows": 7043,
+    "total_cols": 21,
+    "null_count": 0,
+    "whitespace_totalcharges": 11,
+    "duplicate_rows": 0,
+    "churn_rate_pct": 26.54
+  },
+  "after": {
+    "total_rows": 7043,
+    "total_cols": 31,
+    "null_count": 0,
+    "feature_count": 30,
+    "churn_rate_pct": 26.54
+  },
+  "timestamp": "2026-05-20T02:38:47.409750"
+}
