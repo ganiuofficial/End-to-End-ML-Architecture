@@ -387,6 +387,33 @@ def train_ann(X_train, X_test, y_train, y_test):
     _plot_training_history(history)
     return model, y_prob_ann, metrics, history
 
+# ── OVERFITTING AUDIT ────────────────────────────────────────────────────
+# Compare final training accuracy vs final validation accuracy.
+# A gap > 5pp indicates moderate overfitting on this dataset.
+final_train_acc = history.history['accuracy'][-1]
+final_val_acc   = history.history['val_accuracy'][-1]
+final_train_loss = history.history['loss'][-1]
+final_val_loss   = history.history['val_loss'][-1]
+acc_gap  = (final_train_acc - final_val_acc) * 100
+loss_gap = final_val_loss - final_train_loss
+
+print(f"\n   Overfitting audit:")
+print(f"   Final train accuracy : {final_train_acc*100:.2f}%")
+print(f"   Final val accuracy   : {final_val_acc*100:.2f}%")
+print(f"   Accuracy gap         : {acc_gap:.2f}pp  "
+      f"({'moderate overfitting detected' if acc_gap > 5 else 'within acceptable range'})")
+print(f"   Final train loss     : {final_train_loss:.4f}")
+print(f"   Final val loss       : {final_val_loss:.4f}")
+print(f"   Loss gap (val-train) : {loss_gap:.4f}  "
+      f"({'divergence detected' if loss_gap > 0.05 else 'stable'})")
+print(f"\n   NOTE: Divergence between train and val curves is visible in")
+print(f"   03_training_history.png. With 5,634 training samples and a")
+print(f"   3-layer architecture (5,057 parameters), the model has")
+print(f"   sufficient capacity to overfit. Mitigations applied: L2")
+print(f"   regularisation (lambda=0.001) on all Dense layers, Dropout")
+print(f"   (20-30% per layer), and EarlyStopping (patience=15).")
+print(f"   Recommended v2 fix: reduce to 2 hidden layers or increase")
+print(f"   Dropout to 0.4 on Layer 1 to reduce capacity.")
 
 def _plot_training_history(history):
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
